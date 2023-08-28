@@ -17,7 +17,7 @@ class ProductController extends Controller
 
     public function create()
     {
-        $categories = Category::orderby('name')->get();
+        $categories = Category::orderBy('name')->get();
         return view('products.create', compact('categories'));
     }
 
@@ -29,15 +29,15 @@ class ProductController extends Controller
             'category_id' => 'required|integer',
         ]);
 
-        product::create($data);
+        Product::create($data);
 
         return back()->with('message', 'product created.');
     }
 
     public function edit(Product $product)
     {
-        $categories = Category::ordeBy('name')->get();
-        return view('products.edit', compact('product','categpries'));
+        $categories = Category::orderBy('name')->get();
+        return view('products.edit', compact('product','categories'));
     }
 
     public function update(Product $product, Request $request)

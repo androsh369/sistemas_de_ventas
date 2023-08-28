@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        return view('categories.index',[
+        return view('categories.index', [
             'categories'=> Category::paginate()
         ]);
     }
@@ -38,16 +38,16 @@ class CategoryController extends Controller
     }
 
 
-    public function update(Category $category,Request $request)
+    public function update(Category $category, Request $request)
     {
         $data = $request->validate([
-            'name' => 'requires|max:225',
+            'name' => 'required|max:225',
             'description' => 'required|max:225'
         ]);
 
         $category->update($data);
 
-        return back()->with('message', 'Category update.');
+        return back()->with('message', 'Category updated.');
     }
 
     public function destroy(Category $category)
