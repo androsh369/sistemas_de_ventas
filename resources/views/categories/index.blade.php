@@ -3,7 +3,7 @@
 
 
 @if(session('message'))
-    <div style="color:green;">{{ session('message') }}</div>
+    <div style="color: green;">{{ session('message') }}</div>
 @endif
 
 
@@ -21,9 +21,9 @@
 @forelse($categories as $key => $category)
     <tr>
         <td>{{ $categories->firstItem() + $key }}.</td>
-        <td>{{ $category->name }}.</td>
+        <td>{{ $category->name }}</td>
         <td>{{ $category->description}}</td>
-        <td>{{ $category->created_at->format('f d, Y') }}</td>
+        <td>{{ $category->created_at->format('F d, Y') }}</td>
         <td>
             <a href="{{ route('categories.edit', $category) }}">Edit</a>
 
@@ -37,7 +37,8 @@
     <tr>
         <td colspan="5"> No data found in table</td>
     </tr>
-</body> 
+@endforelse
+</body>
 </table>
 
 
