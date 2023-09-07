@@ -23,7 +23,7 @@
         <label for="price">Price</label>
         <input type="text" name="price" id="price" placeholder="Enter price" value="{{ old('price') }}">
         @error('price')
-        <div style="...">{{ $message }}</div>
+        <div style="">{{ $message }}</div>
         @enderror
     </div>
     <div style="margin-bottom: 1em;">
